@@ -11,7 +11,9 @@ import (
 )
 
 type UnpackEvent struct {
+	Name string
 	Data EventData
+	File string
 }
 
 type EventData struct {
@@ -42,6 +44,7 @@ func (event LuetEvent) Run() (map[string]string, error) {
 		err := json.Unmarshal([]byte(event.payload), &dataTmp)
 		if err != nil {
 			log.Log("Error while unmarshalling payload")
+			log.Log("Payload: %s", event.payload)
 			return helpers.WrapErrorMap(err)
 		}
 
