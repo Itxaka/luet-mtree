@@ -17,7 +17,9 @@ limitations under the License.
 package cmd
 
 import (
+	"github.com/itxaka/luet-mtree/pkg/log"
 	"github.com/spf13/cobra"
+	"os"
 )
 
 // NewRootCmd represents the base command when called without any subcommands
@@ -27,9 +29,12 @@ func NewRootCmd() *cobra.Command {
 		Args:          cobra.ExactArgs(2),
 		Short:         "Without a subcommand, luet mtree will parse events and their payloads from luet",
 		SilenceErrors: true,
-		RunE: func(cmd *cobra.Command, args []string) error {
+		Run: func(cmd *cobra.Command, args []string) {
 			err := newEventCmd(args)
-			return err
+			if err != nil {
+				log.Log(err.Error())
+				os.Exit(1)
+			}
 		},
 	}
 

@@ -114,7 +114,7 @@ func (action checkAction) Run() (string, error) {
 	out := formats[action.format](cleanRes)
 
 	for _, diff := range cleanRes {
-		if diff.Type() == mtree.Modified || diff.Type() == mtree.Missing {
+		if diff.Type() == mtree.Modified || diff.Type() == mtree.Missing || diff.Type() == mtree.Extra {
 			return out, errors.New("validation failed")
 		}
 	}
