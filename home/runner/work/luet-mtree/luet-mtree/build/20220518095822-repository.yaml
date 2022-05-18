@@ -1,0 +1,25 @@
+description: Luet mtree official repository
+enable: true
+index: []
+last_update: "1652867902"
+name: luet-mtree
+repo_files:
+  compilertree:
+    checksums:
+      sha256: 4a39f99e9e93697a1a16da34df9c268fb7a57eddc70a52547739763305f33769
+    compressiontype: gzip
+    filename: compilertree.tar.gz
+  meta:
+    checksums:
+      sha256: 06d5f3d7c61b0e42e7df6e672355aa4b668fd03a8f5940f8b53fa4043b248c55
+    compressiontype: none
+    filename: repository.meta.yaml.tar
+  tree:
+    checksums:
+      sha256: e397b56a8ad38eaa2b0a363ced6379726196e80cd77b1ef213a3671735b9f202
+    compressiontype: gzip
+    filename: tree.tar.gz
+revision: 1
+type: http
+urls:
+- http://localhost:8000

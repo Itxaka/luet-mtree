@@ -1,0 +1,140 @@
+path: /home/runner/work/luet-mtree/luet-mtree/build/luet-mtree-toolchain-0.0.8.package.tar.gz
+dependencies: []
+compilespec:
+    steps:
+        - |
+          PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
+          cd /luetbuild/go/src/github.com/rancher-sandbox/luet-mtree && make build && mv bin/luet-mtree /usr/bin/luet-mtree
+    env:
+        - PATH=$PATH:/usr/local/go/bin
+        - GOPATH=/luetbuild/go
+        - GO111MODULE=on
+        - CGO_ENABLED=0
+        - LDFLAGS="-s -w"
+    prelude:
+        - |
+          PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
+          mkdir -p /luetbuild/go/src/github.com/rancher-sandbox && cd /luetbuild/go/src/github.com/rancher-sandbox && \
+          git clone https://github.com/rancher-sandbox/luet-mtree && cd luet-mtree && git checkout "v${PACKAGE_VERSION}" -b build
+    image: golang
+    seed: golang
+    package:
+        id: 0
+        name: luet-mtree
+        version: 0.0.8
+        category: toolchain
+        useflags: []
+        state: ""
+        packagerequires: []
+        packageconflicts: []
+        provides: []
+        hidden: false
+        annotations: {}
+        path: ""
+        description: ""
+        uri: []
+        license: ""
+        buildtimestamp: 2022-05-18 09:58:21.35139125 +0000 UTC m=+168.813775665
+        labels:
+            autobump.revbump_related: system/cos
+            autobump.revdeps: "true"
+            github.owner: rancher-sandbox
+            github.repo: luet-mtree
+        treedir: ./luet-packages
+        origindockerfile: ""
+    sourceassertion:
+        - package:
+            id: 0
+            name: luet-mtree
+            version: 0.0.8
+            category: toolchain
+            useflags: []
+            state: ""
+            packagerequires: []
+            packageconflicts: []
+            provides: []
+            hidden: false
+            annotations: {}
+            path: ""
+            description: ""
+            uri: []
+            license: ""
+            buildtimestamp: ""
+            labels:
+                autobump.revbump_related: system/cos
+                autobump.revdeps: "true"
+                github.owner: rancher-sandbox
+                github.repo: luet-mtree
+            treedir: ./luet-packages
+            origindockerfile: ""
+          value: true
+          hash:
+            buildhash: 287b0fc5ec7b4fcc1b26d24a94542b14d0c30c873466574be5349d9e18185671
+            packagehash: ca25bff9e0eb41ebf21646fbd1f30a26828c9e9b5d0a599aa28462e1e62e61f2
+    package_dir: ""
+    retrieve: []
+    outputpath: /home/runner/work/luet-mtree/luet-mtree/build
+    unpack: false
+    includes:
+        - /usr/bin/luet-mtree
+    excludes: []
+    buildoptions:
+        pushimagerepository: luet/cache
+        pullimagerepository:
+            - luet/cache
+        pullfirst: false
+        keepimg: false
+        push: false
+        concurrency: 0
+        compressiontype: ""
+        wait: false
+        onlydeps: false
+        nodeps: false
+        solveroptions: {}
+        buildvaluesfile: []
+        buildvalues:
+            - {}
+        packagetargetonly: false
+        rebuild: false
+        backendargs: []
+        backendtype: ""
+        templatesfolder: []
+        pushfinalimages: false
+        pushfinalimagesforce: false
+        generatefinalimages: false
+        pushfinalimagesrepository: ""
+        runtimedatabase: null
+        context: null
+    copy: []
+    requires_final_images: false
+checksums:
+    sha256: 57e7d71398f0865728c0ef3615ca5864d07ecb633e84d755ceb0aa2beec4a5d9
+sourceassertion: []
+compressiontype: gzip
+files:
+    - usr/bin/luet-mtree
+packagecacheimage: ""
+runtime:
+    id: 0
+    name: luet-mtree
+    version: 0.0.8
+    category: toolchain
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: ""
+    labels:
+        autobump.revbump_related: system/cos
+        autobump.revdeps: "true"
+        github.owner: rancher-sandbox
+        github.repo: luet-mtree
+    treedir: ""
+    origindockerfile: ""
